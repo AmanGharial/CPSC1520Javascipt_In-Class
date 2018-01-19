@@ -17,3 +17,13 @@
     //combing string to produce a new string is calle concatenation.
     return '<strong>' + value + '</strong>';
   }
+
+  //inclass
+function italics(text)
+{
+  return '<i>' + text + '</i>';
+}
+
+var tag = document.querySelector('span.note');
+tag.innerHTML = italics(tag.innerHTML);
+
