@@ -13,3 +13,25 @@ function handleFeatureCLick()
 
 // 3. add event listener
 featureImage.addEventListener('click',handleFeatureCLick);
+
+
+//Second example:
+// 1. select the target element ( we are selecting the image with the  class of “feature”.)
+var featureLink = document.querySelector('a.feature.link');
+
+// 2. create the event listener function
+function handleFeatureLinkClick(evt)
+{
+    console.log('a.feature.link was clicked');
+    //set the image src to the anchor's href value
+    featureImage.src = featureLink.href;
+
+    //make the image visible
+    featureImage.classList.remove('hidden');
+
+    //dont want to load the image in the page
+    evt.preventDefault();
+}
+
+// 3. add event listener
+featureLink.addEventListener('click',handleFeatureLinkClick);
