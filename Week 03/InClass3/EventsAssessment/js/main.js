@@ -34,3 +34,18 @@ featureLink.addEventListener('click', featureLinkHandler);
 // Note that the featureLinkHandler is not called right now. Instead, it will be called when the click event happens on the featureLink element.
 paraHover.addEventListener('mouseover',funparaHover);
 
+
+
+
+//mouseover
+function funparaHoverRemove()
+{
+    var a = document.querySelector('p.feature.title');
+    var featureImage = document.querySelector('img.feature');
+    
+    featureImage.alt = featureLink.title;
+    a.innerHTML = "";
+    a.classList.remove('hidden');
+}
+
+paraHover.addEventListener('mouseout',funparaHoverRemove);
