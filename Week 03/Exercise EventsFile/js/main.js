@@ -2,16 +2,31 @@
 var featureLink = document.querySelector('a.feature.link');
 
 // 2. create the event listener function
-function featureLinkHandler(evt) {   
+function featureLinkHandler(evt) {    //evt parameter is an object representing the event as it passed to our method.
+    //featureImage will reference an img tag
     var featureImage = document.querySelector('img.feature');
 
     //featureImage.src = featureLink.href;   OR the below one 
     featureImage.src = evt.target.href;
+    //featureImage.alt = featureLink.title
+    featureImage.alt = evt.target.title;
 
-
+    //All elements have a collection of class names that we can access.
     featureImage.classList.remove('hidden');
+    //stop the normal event from happening
     evt.preventDefault();
    }
+
+
+// 3. add event listener
+featureLink.addEventListener('click', featureLinkHandler);
+
+
+
+
+
+
+
 
 //OR 
 // function showImage(evt)
@@ -45,7 +60,5 @@ function featureLinkHandler(evt) {
 
 
 
-// 3. add event listener
-featureLink.addEventListener('click', featureLinkHandler);
 
 
