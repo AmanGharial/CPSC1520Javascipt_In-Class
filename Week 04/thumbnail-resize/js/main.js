@@ -6,9 +6,14 @@
 
 // the clicked button should be made active (i.e. add the active class).
 
+/*
 var liSm = document.querySelector('.thumbnails-sm');
 var liMd = document.querySelector('.thumbnails-md');
 var liLg = document.querySelector('.thumbnails-lg');
+
+Or following one line
+*/
+var ulContainer = document.querySelector('ul.thumbnail-sizes');
 
 function thumbnailSizehandler(evt)
 {
@@ -51,6 +56,10 @@ function thumbnailSizehandler(evt)
    
 
 }
+/*
 liSm.addEventListener('click',thumbnailSizehandler);
 liMd.addEventListener('click',thumbnailSizehandler);
 liLg.addEventListener('click',thumbnailSizehandler);
+Or following one line
+*/
+ulContainer.addEventListener('click',thumbnailSizehandler);
