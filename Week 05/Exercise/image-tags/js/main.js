@@ -8,7 +8,7 @@
 
 document.querySelector('.feature.frm ').addEventListener( 'submit', function (evt) 
 	{ 
-		console.log('Form submitted... '); 
+		//console.log('Form submitted... '); 
 
 		var frm = evt.target; 
 		var tag = frm.elements.tags;
@@ -20,6 +20,14 @@ document.querySelector('.feature.frm ').addEventListener( 'submit', function (ev
 			document.querySelector('p.feature.tags ').innerHTML += '#' + tag.value+ ' ';
 
 			tag.value = '';
+			error.classList.add('hidden');					
+			
+		}
+		else
+		{			
+			error.innerHTML="blank input will not be processed.";
+			error.classList.remove('hidden');
+			
 		}
 		evt.preventDefault();
 	});
