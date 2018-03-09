@@ -41,3 +41,28 @@ document.querySelector('.feature.frm ')
     evt.preventDefault(); 
 });
 
+
+if (tag.value.trim() != '') 
+     {
+
+        if(tag.value.trim().indexof(' '>=0))
+        {
+            error.innerHTML = "NO space bw words.";
+            error.classList.remove('hidden');
+        }
+        else
+        {
+            //insert a '# ' before the tag for aesthetics
+            document.querySelector('p.feature.tags ').innerHTML += '#' + tag.value.trim() + ' ';
+            tag.value = '';
+            error.classList.add('hidden');
+    }
+     } 
+
+    
+    else {
+        // No data was entered
+        error.innerHTML = "Blank input will not be processed.";
+        error.classList.remove('hidden');
+    }
+

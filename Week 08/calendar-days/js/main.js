@@ -41,7 +41,8 @@ for(var week = 1; week <=6; week++)
 			if(todaysDate == dayOfMonth)
 			{
 				console.log(todaysDate);
-				cal+=dayOfMonth;			
+				//cal+=dayOfMonth;	
+				cal=cal+dayOfMonth;		
 			}
 			else
 			{
