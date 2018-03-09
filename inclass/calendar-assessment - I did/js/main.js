@@ -36,37 +36,20 @@ var index;
 var num= calendar.getDate();
            for(var index=0; index < days.length; index++)
            {
-              console.log(index);
-              console.log('in loop');
-              var newmonth = new Date(currentYear, currentMonth, firstDay);
-              var oldMonthelastday = new Date(currentYear, currentMonth, firstDay-1).getDate();
-             // if(new Date(currentYear, currentMonth).getMonth() == new Date(currentYear, currentMonth).getMonth()-1)
+             
+              days[index].innerHTML=calendar.getDate();
+              if(calendar.getMonth()<currentMonth)
               {
-                  if(num>oldMonthelastday)              
-                {
-                  if(new Date(currentYear, currentMonth).getMonth() != new Date(currentYear, currentMonth).getMonth()-1)
-                  {
-                    //num=num;
-                    num=1;
-                    
-                    
-                  }
-                  else
-                  {
-                  //num=1;
-                  num=num;
-                  }
-                }
+                days[index].classList.add('month-prev');
               }
+              if(calendar.getMonth()>currentMonth)
+              {
+                days[index].classList.add('month-next');
+              }
+              calendar = getTomorrow(calendar);
               
-              days[index].innerHTML=num;
-              num=num+1;
-              //calendar.getDate() = calendar.getDate()+1;
            }
-// for(index=1; index<=6;index++)
-// {
-//   calendar+=
-// }
+
 
 
 
