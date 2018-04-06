@@ -72,6 +72,14 @@ document.querySelector('.todo-frm').addEventListener('submit', function (evt) {
 	upArrow.appendChild(upText);
 	div.appendChild(upArrow);
 
+	//inclass
+	var rightArrow = document.createElement('span');
+	var right = '\u21E8';
+	var rightText = document.createTextNode(right);
+	rightArrow.setAttribute('class','arrow right');
+	rightArrow.appendChild(rightText);
+	div.appendChild(rightArrow);
+
 	// add the document fragment to the document for rendering
 	todos.appendChild(div); // I place my "free-floating" <div> into the DOM of my page
 
@@ -84,10 +92,12 @@ document.querySelector('.todo-frm').addEventListener('submit', function (evt) {
 
 document.querySelector('.todo-list').addEventListener('click', function (evt) {
 	// check for click on an arrow
-	if (evt.target.classList.contains('arrow')) {
+	if (evt.target.classList.contains('arrow')) 
+	{
 		var targetTodo = evt.target.parentNode; // the <div> containing my <span class="arrow ..">
 		var todoList = targetTodo.parentNode;   // the <div> containing my <div><input /><label /><span /></div>
 		var siblingTodo;
+		var deleteSelected;
 		// identify the type of arrow (i.e. down or up)
 		if (evt.target.classList.contains('dn')) {
 			siblingTodo = targetTodo.nextElementSibling;
@@ -97,6 +107,16 @@ document.querySelector('.todo-list').addEventListener('click', function (evt) {
 			siblingTodo = targetTodo.previousElementSibling;
 			// insert the target before the sibling
 			todoList.insertBefore(targetTodo, siblingTodo); // footnote #1
+		}
+		else if(evt.target.classList.contains('right'))
+		{
+			//console.log('right');
+			
+			if(window.confirm("Do you really want to delete?"))
+			{
+			deleteSelected = targetTodo.deleteSelected;			
+			todoList.removeChild(targetTodo,deleteSelected);
+			}
 		}
 	}
 });
